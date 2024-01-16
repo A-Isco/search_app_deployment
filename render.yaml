@@ -1,0 +1,30 @@
+databases:
+  - name: search_app_postgres
+    ipAllowList: []
+    plan: free
+
+services:
+  - type: redis
+    name: redis
+    ipAllowList: []
+    plan: free
+  - type: web
+    name: search_app_rails
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: bundle exec rails s
+    envVars:
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: search_app_postgres
+          property: connectionString
+      - key: WEB_CONCURRENCY
+        value: 2
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: redis
+          property: connectionString

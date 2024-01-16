@@ -1,0 +1,10 @@
+<div class="container mx-auto p-8 bg-gradient-to-r from-blueblack to-gold-500 rounded-lg shadow-xl text-center">
+  <h1 class="text-6xl font-extrabold text-white mb-6">Discover Awesome Articles</h1>
+  <%= form_with url: articles_path, method: :get, data: { controller: "search", turbo_frame: "search_results", search_target: "form" }, class: "flex space-x-4" do |form| %>
+    <%= form.text_field :search, placeholder: "🔍 Search for articles...", data: { action: "keyup->search#perform" }, class: "form-input block w-full px-6 py-4 text-2xl font-semibold bg-gold-600 text-black bg-clip-padding border border-solid border-gold-700 rounded m-0 focus:bg-gold-700 focus:border-black focus:outline-none" %>
+  <% end %>
+
+  <turbo-frame id="search_results">
+    <%= render partial: "articles_list", locals: { articles: @articles } %>
+  </turbo-frame>
+</div>

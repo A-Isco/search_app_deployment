@@ -1,0 +1,10 @@
+<div class="container mx-auto p-8">
+  <ul class="list-none pl-0">
+    <% articles.each do |article| %>
+      <li class="py-4 border-b border-gray-300">
+        <h3 class="text-2xl font-extrabold text-black mb-2"><%= article.title %></h3>
+        <p class="text-lg font-bold text-blueblack-900"><%= article.content %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>

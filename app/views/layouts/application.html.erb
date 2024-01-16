@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RealtimeSearchBox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body class="bg-gradient-to-r from-teal-500 to-pink-900 text-white font-sans">
+  <header class="bg-teal-600 text-pink-300 py-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-5xl font-extrabold">🌟 Realtime SearchBox</h1>
+      <%= render 'shared/navbar' %>
+    </div>
+  </header>
+
+  <main class="container mx-auto my-10 px-8 py-12 bg-purple-700 text-yellow-300 rounded-lg shadow-2xl">
+    <%= yield %>
+  </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="text-center">
+  <h1 class="flex items-center justify-center font-bold text-5xl mb-6">
+    🧐 Top Searches 🚀
+  </h1>
+  <div class="max-w-md mx-auto mt-10">
+    <%= turbo_stream_from(:most_searched) %>
+    <turbo-frame id="most_searched">
+      <% @most_searched.each_with_index do |search, index| %>
+        <div class="bg-gradient-to-r from-teal-500 to-pink-300 text-white shadow-md rounded-lg p-4 mb-4">
+          <span class="text-4xl font-bold block mb-2">#<%= index + 1 %> <%= search.query %></span>
+          <% if search.respond_to?(:count) %>
+            <span class="bg-green-500 text-white text-xl font-bold px-3 py-1 rounded-full inline-block"><%= search.count %> times</span>
+          <% else %>
+            <span class="bg-blue-500 text-white text-xl font-bold px-3 py-1 rounded-full inline-block"><%= search.updated_at %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </turbo-frame>
+  </div>
+</div>

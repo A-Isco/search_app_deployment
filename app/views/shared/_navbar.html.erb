@@ -1,0 +1,19 @@
+<nav class="bg-gradient-to-r from-teal-500 to-gray-300 py-2">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="ml-4 flex items-center space-x-4">
+          <%= link_to root_path, class: "text-black-300 hover:text-white text-2xl font-extrabold transition duration-300" do %>
+            Home
+          <% end %>
+          <%= link_to searches_path, class: "text-gold-300 hover:text-white text-2xl font-extrabold transition duration-300" do %>
+            Most Searched
+          <% end %>
+          <%= link_to user_history_searches_path, class: "text-gold-300 hover:text-white text-2xl font-extrabold transition duration-300" do %>
+            History
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
